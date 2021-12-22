@@ -64,6 +64,22 @@ def get_category_id(id):
 
     return categoria_schema.jsonify(category_id)
 
+
+# POST 
+@app.route('/categoria', methods=['POST'])
+def insert_category():
+    # Obtener los datos de la peticion
+    cat_nombre = request.json['cat_nombre']
+    cat_descripcion = request.json['cat_descripcion']
+
+    # Insertar los datos en la tabla categoria
+    new_category = Categoria(cat_nombre, cat_descripcion)
+
+    db.session.add(new_category)
+    db.session.commit()
+
+    return categoria_schema.jsonify(new_category)
+
 # Mensaje de Bienvenida
 @app.route('/', methods=['GET'])
 def index():
