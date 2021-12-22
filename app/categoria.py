@@ -68,9 +68,10 @@ def get_category_id(id):
 # POST 
 @app.route('/categoria', methods=['POST'])
 def insert_category():
+    data = request.get_json(force=True)
     # Obtener los datos de la peticion
-    cat_nombre = request.json['cat_nombre']
-    cat_descripcion = request.json['cat_descripcion']
+    cat_nombre = data['cat_nombre']
+    cat_descripcion = data['cat_descripcion']
 
     # Insertar los datos en la tabla categoria
     new_category = Categoria(cat_nombre, cat_descripcion)
