@@ -54,6 +54,21 @@ def get_categories():
     # Devuelve los datos en formato JSON
     return jsonify(result)
 
+
+# GET por ID
+@app.route('/categoria/<int:id>', methods=['GET'])
+
+def get_category_id(id):
+    # Obtener una categoria
+    category_id = Categoria.query.get(id)
+
+    # Serializar los datos
+    result = categoria_schema.dump(category_id)
+
+    # Devuelve los datos en formato JSON
+    return jsonify(result)
+
+
 # Mensaje de Bienvenida
 @app.route('/', methods=['GET'])
 def index():
