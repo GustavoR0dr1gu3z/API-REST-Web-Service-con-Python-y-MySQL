@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 
+# Nombre de mi Aplicacion
 app = Flask(__name__)
 
 
@@ -7,5 +8,6 @@ app = Flask(__name__)
 def index():
     return jsonify({'Mensaje': 'Bienvenido'})
 
+# Correr la aplicacion
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
