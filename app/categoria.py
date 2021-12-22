@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return jsonify({'Mensaje': 'Bienvenido'})
+    return jsonify({'Mensaje': 'Bienvenido al Tutorial API'})
 
 # Correr la aplicacion
 if __name__ == '__main__':
