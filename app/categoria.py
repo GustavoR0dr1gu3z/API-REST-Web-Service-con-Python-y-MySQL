@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
-def index():
+def in dex():
     return jsonify({'Mensaje': 'Bienvenido al Tutorial API'})
 
 # Correr la aplicacion
