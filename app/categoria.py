@@ -28,6 +28,31 @@ class Categoria(db.Model):
 
 db.create_all()
 
+# Mashmallow para serializar los datos, en este caso los datos de la tabla categoria
+# Esquema categoria
+class CategoriaSchema(ma.Schema):
+    class Meta:
+        fields = ('cat_id', 'cat_nombre', 'cat_descripcion')
+
+
+# GET, una sola respuesta
+categoria_schema = CategoriaSchema()
+
+# GET, multiples respuestas
+categorias_schema = CategoriaSchema(many=True)
+
+# GET
+@app.route('/categoria', methods=['GET'])
+
+def get_categories():
+    # Obtener todas las categorias
+    all_categories = Categoria.query.all()
+
+    # Serializar los datos  
+    result = categorias_schema.dump(all_categories)
+
+    # Devuelve los datos en formato JSON
+    return jsonify(result)
 
 # Mensaje de Bienvenida
 @app.route('/', methods=['GET'])
