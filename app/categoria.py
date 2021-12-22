@@ -31,7 +31,7 @@ db.create_all()
 
 # Mensaje de Bienvenida
 @app.route('/', methods=['GET'])
-def in dex():
+def index():
     return jsonify({'Mensaje': 'Bienvenido al Tutorial API'})
 
 # Correr la aplicacion
